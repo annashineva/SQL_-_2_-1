@@ -1,16 +1,8 @@
 CREATE table IF NOT EXISTS Employee (
 employee_id SERIAL PRIMARY KEY,
 name TEXT NOT NULL,
-department TEXT NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS Bosse (
-boss_id SERIAL PRIMARY KEY,
-name TEXT NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS EmployeeBoss (
-id SERIAL PRIMARY KEY,
-employee_id INTEGER NOT NULL REFERENCES Employee(employee_id),
-boss_id INTEGER NOT NULL REFERENCES Boss(boss_id)
+department TEXT NOT NULL,
+boss_id INTEGER NOT NULL,
+boss_name TEXT NOT NULL,
+FOREIGN KEY (boss_id) REFERENCES Employee(employee_id)
 );
